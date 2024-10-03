@@ -1,6 +1,7 @@
 <?php
-require 'config.php';
 session_start();
+require 'config.php';
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
@@ -10,14 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute([$email]);
     $membre = $stmt->fetch();
 
-    $_SESSION['membre_id'] = 18;
     if ($membre && password_verify($password, $membre['password'])) {
-        // if (session_status() == PHP_SESSION_NONE) {
-        //     session_start();
-        // }
-        $_SESSION['membre_id'] = 10;
-        header("Location: Dashboard.php"); 
-        exit;
+       $_SESSION['membre_id'] = $membre['id']; 
+       header("Location: Dashboard.php"); 
+       exit;
     } else {
         echo "Email ou mot de passe incorrect.";
     }

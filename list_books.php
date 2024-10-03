@@ -9,9 +9,6 @@ $conn = new PDO("mysql:host=$serveur;dbname=bibliotheque", $login, $pass);
 $result = $conn->query("SELECT * FROM books");
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>

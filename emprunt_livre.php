@@ -44,6 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['emprunt'])) {
 <h2>Emprunter un Livre</h2>
 
 <form method="POST">
+    <label for="membre_id">ID du membre :</label>
+    <input type="number" name="membre_id" id="membre_id" required>
     <label for="book_id">ID du livre :</label>
     <input type="number" name="book_id" id="book_id" required>
     <button type="submit" name="emprunt">Emprunter</button>

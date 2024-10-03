@@ -161,7 +161,7 @@ header h1 {
 .card p {
   font-size: 24px;
   font-weight: bold;
-  color: #007bff;
+  color: #2c3e50;
 }
 
 /* Responsive */
@@ -183,6 +183,9 @@ header h1 {
 }
 
 @media (max-width: 480px) {
+  .sidebar {
+    background-color: none;
+  }
   .signup-form h2 {
     font-size: 22px;
   }
@@ -214,4 +217,37 @@ header h1 {
   border: none;
   color: #fff;
   height: 30px;
+}
+
+.hamburger {
+  display: none; /* Hidden by default */
+  background-color: #34495e;
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;/* Show hamburger button on smaller screens */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000; /* Ensure it is above other elements */
+  }
+
+  .sidebar {
+    display: none; /* Hide sidebar by default */
+    width: 100%; /* Full width when shown */
+    position: absolute; /* Position it absolutely */
+    top: 0;
+    left: -100%; /* Move it off-screen */
+    transition: left 0.3s ease; /* Smooth transition */
+  }
+
+  .sidebar.active {
+    left: 0; /* Move it back into view */
+  }
 }
